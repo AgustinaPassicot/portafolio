@@ -1,0 +1,1910 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favico.ico" />
+    <title>Agustina Passicot — Servicios digitales para inmobiliarias</title>
+    <style>
+      :root {
+        --bg: #efefef;
+        --paper: #f4efe8;
+        --card: #e9e3dd;
+        --taupe: #aba398;
+        --taupe-dark: #948c81;
+        --brown: #5c3d2d;
+        --brown-deep: #452d21;
+        --white: #ffffff;
+        --text: #4b3a31;
+        --text-soft: #7b6b62;
+        --line: rgba(92, 61, 45, 0.18);
+        --hero-overlay: rgba(91, 78, 66, 0.34);
+        --radius-xl: 34px;
+        --radius-lg: 26px;
+        --radius-md: 18px;
+        --container: 430px;
+        --shadow-soft: 0 16px 40px rgba(38, 29, 22, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #1f1f22;
+        color: var(--text);
+        font-family:
+          "Be Vietnam Pro", "Poppins", "Questrial", Arial, sans-serif;
+        line-height: 1.45;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      ul {
+        padding-left: 1.2rem;
+      }
+
+      .site {
+        width: 100%;
+        max-width: var(--container);
+        background: var(--bg);
+        min-height: 100vh;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
+      }
+
+      .section-tag {
+        font-size: 0.95rem;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--brown-deep);
+        text-align: center;
+        margin-bottom: 1.25rem;
+        font-weight: 500;
+      }
+
+      .hero {
+        position: relative;
+        color: var(--white);
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            to bottom,
+            rgba(32, 25, 20, 0.18),
+            rgba(32, 25, 20, 0.52)
+          ),
+          url("https://cdn.pixabay.com/photo/2016/11/29/03/53/architecture-1867187_1280.jpg")
+            center/cover no-repeat;
+        transform: scale(1.04);
+        z-index: -2;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(171, 163, 152, 0.22),
+          rgba(92, 61, 45, 0.22)
+        );
+        backdrop-filter: blur(3px);
+        z-index: -1;
+      }
+
+      .hero-inner {
+        width: 100%;
+        padding: 2.2rem 1.15rem 2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.4rem;
+      }
+
+      .pill {
+        border: 1px solid rgba(255, 255, 255, 0.74);
+        border-radius: 999px;
+        padding: 0.52rem 1.2rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .brand {
+        margin-top: 0.1rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .brand-logo {
+        width: min(100%, 270px);
+        height: auto;
+        display: block;
+        filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.16));
+      }
+
+      .brand-logo svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .roles {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.04em;
+        color: rgba(255, 255, 255, 0.92);
+        text-transform: none;
+      }
+
+      .roles span {
+        position: relative;
+        padding: 0 0.3rem;
+      }
+
+      .roles span:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -0.45rem;
+        top: 50%;
+        width: 1px;
+        height: 0.95rem;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.55);
+      }
+
+      .hero-title {
+        font-family: "Aristotelica Pro Text", Georgia, serif;
+        font-size: clamp(2.7rem, 8vw, 4.15rem);
+        line-height: 0.98;
+        max-width: 11ch;
+        letter-spacing: -0.03em;
+      }
+
+      .hero-copy {
+        max-width: 30ch;
+        width: 100%;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.95);
+        font-weight: 300;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 0.95rem;
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.2rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        min-width: 150px;
+        border-radius: 18px;
+        padding: 0.95rem 1.05rem;
+        font-size: 0.96rem;
+        font-weight: 500;
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        text-align: center;
+        transition: 0.25s ease;
+      }
+
+      .btn-primary {
+        background: rgba(74, 46, 26, 0.9);
+        border-color: rgba(74, 46, 26, 0.4);
+        color: var(--white);
+        box-shadow: 0 10px 30px rgba(42, 23, 11, 0.25);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--white);
+        backdrop-filter: blur(8px);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .intro,
+      .why,
+      .services,
+      .templates,
+      .video,
+      .before-after,
+      .cta {
+        padding-inline: 1.1rem;
+      }
+
+      .intro {
+        background: #f5f5f5;
+        padding-top: 2rem;
+        padding-bottom: 2.6rem;
+        text-align: center;
+      }
+
+      .intro h2,
+      .why h2,
+      .templates h2,
+      .video h2,
+      .cta h2 {
+        font-family: "Be Vietnam Pro", "Poppins", sans-serif;
+        color: var(--brown-deep);
+        letter-spacing: -0.04em;
+        line-height: 0.98;
+      }
+
+      .intro h2 {
+        font-size: clamp(3rem, 9vw, 4rem);
+        margin-bottom: 1.2rem;
+        font-weight: 700;
+      }
+
+      .intro p {
+        font-size: 0.98rem;
+        line-height: 1.65;
+        color: #65574f;
+        max-width: 34ch;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .services {
+        padding-top: 0.4rem;
+        padding-bottom: 2.2rem;
+        display: grid;
+        gap: 2rem;
+      }
+
+      .service-card {
+        position: relative;
+        background: var(--card);
+        border: 1px solid rgba(132, 116, 104, 0.35);
+        border-radius: 28px;
+        padding: 3.9rem 1.45rem 1.6rem;
+        text-align: center;
+        box-shadow: 0 2px 0 rgba(255, 255, 255, 0.5) inset;
+      }
+
+      .service-icon {
+        position: absolute;
+        top: -1.7rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 82px;
+        height: 82px;
+        border-radius: 50%;
+        background: var(--taupe);
+        border: 6px solid var(--bg);
+        display: grid;
+        place-items: center;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .service-icon img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+      }
+
+      .service-card h3 {
+        font-size: 1.05rem;
+        line-height: 1.15;
+        color: var(--brown-deep);
+        margin-bottom: 0.9rem;
+        font-weight: 700;
+        font-family: "Be Vietnam Pro", "Poppins", sans-serif;
+      }
+
+      .service-card p {
+        font-size: 0.88rem;
+        line-height: 1.55;
+        color: #6d5d54;
+        margin-bottom: 1rem;
+      }
+
+      .service-card ul {
+        list-style: none;
+        padding-left: 0;
+        text-align: center;
+        color: var(--brown-deep);
+        font-size: 0.9rem;
+        line-height: 1.7;
+        max-width: 18rem;
+        margin: 0 auto;
+      }
+
+      .service-card li {
+        display: block;
+      }
+
+      .templates,
+      .video,
+      .before-after,
+      .cta {
+        background: var(--brown);
+        color: var(--white);
+      }
+
+      .templates {
+        padding-top: 2rem;
+        padding-bottom: 2.4rem;
+      }
+
+      .templates .section-tag,
+      .video .section-tag,
+      .before-after .section-tag {
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      .templates h2,
+      .video h2,
+      .before-after h2 {
+        color: var(--white);
+        font-size: clamp(2.5rem, 8vw, 3.7rem);
+        margin-bottom: 1.8rem;
+        text-align: center;
+      }
+
+      .template-list {
+        display: grid;
+        gap: 1.6rem;
+      }
+
+      .template-carousel {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .template-track {
+        display: flex;
+        transition: transform 0.35s ease;
+        will-change: transform;
+      }
+
+      .template-slide {
+        min-width: 100%;
+        flex: 0 0 100%;
+      }
+
+      .template-slide img {
+        width: 100%;
+        aspect-ratio: 347 / 434;
+        object-fit: contain;
+        object-position: center;
+        background: #c8c8c8;
+        cursor: pointer;
+      }
+
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+
+      .lightbox.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .lightbox img,
+      .lightbox video {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+      }
+
+      .lightbox video {
+        display: none;
+        background: #000;
+      }
+
+      .lightbox-before-after {
+        display: none;
+        position: relative;
+        width: min(92vw, 900px);
+        height: min(92vw, 900px);
+        aspect-ratio: 1 / 1;
+        background: #000;
+        margin: auto;
+        overflow: hidden;
+      }
+
+      .lightbox-before-after.active {
+        display: block;
+      }
+
+      .lightbox-nav {
+        display: none;
+      }
+
+      .lightbox-nav svg {
+        width: 22px;
+        height: 22px;
+        stroke: var(--brown-deep);
+        stroke-width: 3;
+        fill: none;
+      }
+
+      .lightbox-nav.prev {
+        left: 20px;
+      }
+
+      .lightbox-nav.next {
+        right: 20px;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+      }
+
+      .template-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 45px;
+        height: 45px;
+        border: none;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #f0ece6;
+        color: var(--brown-deep);
+        cursor: pointer;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+        z-index: 2;
+      }
+
+      .template-nav svg {
+        width: 22px;
+        height: 22px;
+        stroke: var(--brown-deep);
+        stroke-width: 3;
+        fill: none;
+      }
+
+      .template-nav.prev {
+        left: 0.7rem;
+      }
+
+      .template-nav.next {
+        right: 0.7rem;
+      }
+
+      .template-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.45rem;
+        margin-top: 0.8rem;
+      }
+
+      .template-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.28);
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      }
+
+      .template-dot.active {
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .template-item h3 {
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 0.7rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        letter-spacing: 0.02em;
+      }
+
+      .template-item h3::after {
+        content: "";
+        height: 1px;
+        flex: 1;
+        background: rgba(255, 255, 255, 0.22);
+      }
+
+      .template-frame {
+        background: rgba(255, 255, 255, 0.04);
+        padding: 0.2rem;
+      }
+
+      .template-carousel,
+      .template-slide {
+        aspect-ratio: 347 / 434;
+      }
+
+      .templates-copy {
+        text-align: center;
+        font-size: 0.98rem;
+        line-height: 1.75;
+        max-width: 35ch;
+        width: 100%;
+        margin: 1.7rem auto 0;
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      .templates-divider {
+        background: #f0ece6;
+        color: #2f231b;
+        margin-top: 1.4rem;
+        text-align: center;
+        padding: 0.45rem 0.8rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.03em;
+      }
+
+      .video {
+        padding-top: 2rem;
+        padding-bottom: 2.4rem;
+      }
+
+      .video h2,
+      .before-after h2 {
+        text-align: left;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 6px;
+        margin-bottom: 1.2rem;
+      }
+
+      .video-frame,
+      .before-after-frame {
+        width: 78%;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 0.25rem;
+      }
+
+      .video-carousel,
+      .before-after-carousel {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 1 / 1;
+      }
+
+      .video-track,
+      .before-after-track {
+        display: flex;
+        transition: transform 0.35s ease;
+        will-change: transform;
+        height: 100%;
+      }
+
+      .video-slide,
+      .before-after-slide {
+        min-width: 100%;
+        flex: 0 0 100%;
+        aspect-ratio: 1 / 1;
+      }
+
+      .video-slide video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        cursor: pointer;
+        background: #000;
+      }
+
+      .before-after {
+        padding-top: 2rem;
+        padding-bottom: 2.4rem;
+      }
+
+      .before-after-compare {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+        user-select: none;
+        touch-action: none;
+        cursor: ew-resize;
+      }
+
+      .before-after-base,
+      .before-after-overlay {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .before-after-base img,
+      .before-after-overlay img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        transform: translate(-50%, -50%);
+        display: block;
+        pointer-events: none;
+        background: #000;
+      }
+
+      .before-after-overlay {
+        width: 100%;
+        overflow: hidden;
+        clip-path: inset(0 50% 0 0);
+      }
+
+      .before-after-divider {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        background: rgba(255, 255, 255, 0.9);
+        transform: translateX(-50%);
+        pointer-events: none;
+      }
+
+      .before-after-handle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.95);
+        border: 4px solid #fff;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+        display: grid;
+        place-items: center;
+        pointer-events: none;
+      }
+
+      .before-after-handle::before,
+      .before-after-handle::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: 6px;
+        height: 9999px;
+        margin-left: -3px;
+        background: #fff;
+        z-index: -1;
+      }
+
+      .before-after-handle::before {
+        top: 100%;
+      }
+
+      .before-after-handle::after {
+        bottom: 100%;
+      }
+
+      .before-after-handle svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--brown-deep);
+        stroke-width: 2.6;
+        fill: none;
+      }
+
+      .before-after-label {
+        position: absolute;
+        top: 0.8rem;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.95);
+        background: rgba(0, 0, 0, 0.28);
+        border-radius: 999px;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .before-after-label.before {
+        left: 0.8rem;
+      }
+
+      .before-after-label.after {
+        right: 0.8rem;
+      }
+
+      .video-dots,
+      .before-after-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.45rem;
+        margin-top: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      .video-dot,
+      .before-after-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.28);
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      }
+
+      .video-dot.active,
+      .before-after-dot.active {
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .why {
+        background: #e7ddcf;
+        padding-top: 2.1rem;
+        padding-bottom: 2.8rem;
+        text-align: center;
+      }
+
+      .why h2 {
+        font-size: clamp(2.2rem, 8vw, 3.2rem);
+        margin-bottom: 1rem;
+        max-width: 16ch;
+        width: 100%;
+        margin-inline: auto;
+        font-weight: 700;
+      }
+
+      .why-intro {
+        font-size: 0.98rem;
+        line-height: 1.65;
+        max-width: 30ch;
+        width: 100%;
+        margin: 0 auto 1.7rem;
+        color: #72655c;
+      }
+
+      .reason-list {
+        display: grid;
+        gap: 1.2rem;
+        justify-items: center;
+      }
+
+      .reason {
+        --reason-size: min(82vw, 320px);
+        width: var(--reason-size);
+        height: var(--reason-size);
+        border-radius: 50%;
+        background: var(--taupe);
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .reason-icon {
+        margin-bottom: 0.8rem;
+      }
+
+      .reason-icon img {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+      }
+
+      .reason h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+        font-weight: 700;
+        line-height: 1.2;
+        max-width: 24ch;
+        width: 100%;
+      }
+
+      .reason p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        max-width: 26ch;
+        width: 100%;
+        color: rgba(255, 255, 255, 0.95);
+        width: 100%;
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      .quote {
+        margin-top: 1.8rem;
+        font-family: "Questrial", "Poppins", sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--brown-deep);
+        max-width: 30ch;
+        width: 100%;
+        margin-inline: auto;
+      }
+
+      .cta {
+        text-align: center;
+        padding-top: 2.4rem;
+        padding-bottom: 2.6rem;
+      }
+
+      .cta h2 {
+        color: var(--white);
+        font-family: "Aristotelica Pro Text", Georgia, serif;
+        font-size: clamp(2.8rem, 9vw, 4.2rem);
+        line-height: 0.96;
+        max-width: 8ch;
+        margin: 0 auto 1rem;
+        font-weight: 400;
+      }
+
+      .cta p {
+        font-size: 1rem;
+        line-height: 1.6;
+        max-width: 30ch;
+        width: 100%;
+        margin: 0 auto 1.2rem;
+        color: rgba(255, 255, 255, 0.94);
+      }
+
+      .footer-note {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      @media (min-width: 600px) {
+        body {
+          padding: 1.2rem;
+        }
+
+        .site {
+          border-radius: 0;
+          overflow: hidden;
+        }
+
+        .hero-inner,
+        .intro,
+        .services,
+        .templates,
+        .video,
+        .before-after,
+        .why,
+        .cta {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+
+        .services {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (min-width: 900px) {
+        .site {
+          max-width: 1280px;
+        }
+
+        .hero {
+          min-height: 860px;
+        }
+
+        .hero-inner {
+          padding: 4rem 3rem;
+          gap: 1.6rem;
+        }
+
+        .hero-copy {
+          max-width: 31ch;
+          font-size: 1.05rem;
+        }
+
+        .hero-title {
+          max-width: 12ch;
+        }
+
+        .intro {
+          padding-top: 4rem;
+          padding-bottom: 4rem;
+        }
+
+        .intro p {
+          max-width: 30ch;
+          font-size: 1.15rem;
+        }
+
+        .services {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 3rem 2rem;
+          padding-bottom: 4rem;
+          padding-inline: 2rem;
+        }
+
+        .template-list {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .video-frame {
+          width: min(100%, 380px);
+        }
+
+        .reason-list {
+          grid-template-columns: repeat(2, minmax(280px, 1fr));
+          align-items: start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="site">
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="pill">Servicios Digitales para inmobiliarias</div>
+
+          <div class="brand" aria-label="Agustina Passicot">
+            <img class="brand-logo" src="logo.png" alt="Agustina Passicot" />
+          </div>
+
+          <div class="roles">
+            <span>Content Manager</span>
+            <span>Community manager</span>
+            <span>Diseñadora UX-UI</span>
+          </div>
+
+          <h1 class="hero-title">Tu marca es tu mejor propiedad</h1>
+
+          <p class="hero-copy">
+            Diseño, gestiono y construyo la identidad digital de tu inmobiliaria
+            en tus redes sociales — todo habla de ti.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#disenos-plantillas"
+              >Ver catálogo</a
+            >
+            <a class="btn btn-secondary" href="#importancia"
+              >¿Por qué importa?</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="intro" id="catalogo">
+        <div class="section-tag">Catálogo</div>
+        <h2>Servicios</h2>
+        <p>
+          Cada servicio está diseñado para que tu inmobiliaria destaque, genere
+          confianza y convierta visitantes en clientes.
+        </p>
+      </section>
+
+      <section class="services" aria-label="Servicios principales">
+        <article class="service-card">
+          <div class="service-icon">
+            <img src="ser1image.png" alt="icono rediseño" />
+          </div>
+          <h3>Rediseño de Marca</h3>
+          <p>
+            Renovamos la imagen de tu inmobiliaria para transmitir confianza,
+            profesionalismo y modernidad.
+          </p>
+          <ul>
+            <li>3 propuestas iniciales</li>
+            <li>Armonía visual</li>
+            <li>Tipografía personalizada</li>
+            <li>Manual de identidad</li>
+            <li>Contenido en alta a disposición</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <img src="ser2image.png" alt="icono logotipo" />
+          </div>
+          <h3>Diseño de Logotipo</h3>
+          <p>
+            Creamos logos memorables que representan la esencia y valores de tu
+            inmobiliaria.
+          </p>
+          <ul>
+            <li>3 propuestas iniciales</li>
+            <li>Revisiones ilimitadas</li>
+            <li>Archivos en alta calidad</li>
+            <li>Versiones para redes</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <img src="ser3image.png" alt="icono marca de agua" />
+          </div>
+          <h3>Marca de Agua</h3>
+          <p>
+            Protege tus fotografías de propiedades con marcas de agua elegantes
+            y discretas.
+          </p>
+          <ul>
+            <li>Diseño sutil y profesional</li>
+            <li>Múltiples formatos</li>
+            <li>Aplicación automática</li>
+            <li>Protección de marca</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <img src="ser4image.png" alt="icono instagram" />
+          </div>
+          <h3>Manejo de Instagram</h3>
+          <p>
+            Gestión completa de tu perfil de Instagram con contenido que atrae
+            compradores y vendedores.
+          </p>
+          <ul>
+            <li>Calendario de contenido</li>
+            <li>Diseño de publicaciones</li>
+            <li>Stories y Reels</li>
+            <li>Interacción con audiencia</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <img src="ser5image.png" alt="icono fotografia" />
+          </div>
+          <h3>Fotografía Inmobiliaria</h3>
+          <p>
+            Edición profesional de fotos de propiedades para causar el mejor
+            impacto visual en tus listados.
+          </p>
+          <ul>
+            <li>Retoque de interiores</li>
+            <li>Corrección de color</li>
+            <li>HDR profesional</li>
+            <li>Fotos panorámicas</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <img src="ser6image.png" alt="icono plantillas" />
+          </div>
+          <h3>Plantillas para Redes</h3>
+          <p>
+            Kits de plantillas editables para publicar propiedades de forma
+            atractiva y consistente.
+          </p>
+          <ul>
+            <li>Templates de Instagram</li>
+            <li>Historias destacadas</li>
+            <li>Portadas de Facebook</li>
+            <li>Flyers digitales</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <img src="ser7image.png" alt="icono estrategia" />
+          </div>
+          <h3>Estrategia Digital</h3>
+          <p>
+            Planificación estratégica para posicionar tu inmobiliaria en el
+            mundo digital y captar más clientes.
+          </p>
+          <ul>
+            <li>Análisis de competencia</li>
+            <li>Plan de contenido</li>
+            <li>Métricas y reportes</li>
+            <li>Publicidad digital</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="templates" aria-labelledby="disenos-plantillas">
+        <div class="section-tag">Opciones</div>
+        <h2 id="disenos-plantillas">Diseños de plantillas</h2>
+
+        <div class="template-list" id="template-list"></div>
+
+        <p class="templates-copy">
+          La primera impresión es decisiva y todo comienza en tu inmobiliaria.
+          Elevá la calidad de tus presentaciones, elegí el estilo que mejor te
+          represente y lográ que tus propiedades se destaquen en el mercado.
+        </p>
+
+        <div class="templates-divider">
+          Potencia tu marca a través del diseño
+        </div>
+      </section>
+
+      <section class="video" aria-labelledby="opciones-audiovisuales">
+        <div class="section-tag">Opciones audiovisuales</div>
+        <h2 id="opciones-audiovisuales">Diseño de videos</h2>
+        <div class="video-frame">
+          <div class="video-carousel" id="video-carousel">
+            <button
+              class="template-nav prev"
+              id="video-prev"
+              type="button"
+              aria-label="Video anterior"
+            >
+              <svg viewBox="0 0 24 24">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+            <div class="video-track" id="video-track"></div>
+            <button
+              class="template-nav next"
+              id="video-next"
+              type="button"
+              aria-label="Video siguiente"
+            >
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          </div>
+          <div class="video-dots" id="video-dots"></div>
+        </div>
+      </section>
+
+      <section class="before-after" aria-labelledby="embellecimiento-imagen">
+        <div class="section-tag">Opciones audiovisuales</div>
+        <h2 id="embellecimiento-imagen">Embellecimiento de imagen</h2>
+        <div class="before-after-frame">
+          <div class="before-after-carousel" id="before-after-carousel">
+            <button
+              class="template-nav prev"
+              id="before-after-prev"
+              type="button"
+              aria-label="Imagen comparativa anterior"
+            >
+              <svg viewBox="0 0 24 24">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+            <div class="before-after-track" id="before-after-track"></div>
+            <button
+              class="template-nav next"
+              id="before-after-next"
+              type="button"
+              aria-label="Imagen comparativa siguiente"
+            >
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          </div>
+          <div class="before-after-dots" id="before-after-dots"></div>
+        </div>
+      </section>
+
+      <section class="why" id="importancia">
+        <div class="section-tag">¿Por qué importa?</div>
+        <h2>La importancia de tu marca digital</h2>
+        <p class="why-intro">
+          Tu marca no es solo un logo. Es la percepción que cada cliente tiene
+          de tu negocio en cada punto de contacto digital.
+        </p>
+
+        <div class="reason-list">
+          <article class="reason">
+            <div class="reason-icon">
+              <img src="imp1circle.png" alt="icono confianza" />
+            </div>
+            <h3>Confianza Profesional</h3>
+            <p>
+              Una marca sólida genera confianza inmediata. Los clientes eligen
+              inmobiliarias que se ven profesionales y consistentes en todos sus
+              canales.
+            </p>
+          </article>
+
+          <article class="reason">
+            <div class="reason-icon">
+              <img src="imp2circle.png" alt="icono diferenciacion" />
+            </div>
+            <h3>Diferenciación</h3>
+            <p>
+              En un mercado saturado, tu imagen es lo primero que te separa de
+              la competencia. La marca correcta te hace memorable.
+            </p>
+          </article>
+
+          <article class="reason">
+            <div class="reason-icon">
+              <img src="imp3circle.png" alt="icono fidelizacion" />
+            </div>
+            <h3>Fidelización</h3>
+            <p>
+              Una identidad coherente crea conexión emocional. Los clientes
+              regresan y te recomiendan cuando reconocen y confían en tu marca.
+            </p>
+          </article>
+
+          <article class="reason">
+            <div class="reason-icon">
+              <img src="imp4circle.png" alt="icono visibilidad" />
+            </div>
+            <h3>Visibilidad Digital</h3>
+            <p>
+              Las redes sociales y buscadores premian la consistencia visual.
+              Una marca bien gestionada atrae más tráfico orgánico.
+            </p>
+          </article>
+        </div>
+
+        <p class="quote">
+          "En bienes raíces, no vendes propiedades — vendes confianza. Tu marca
+          es la primera propiedad que el cliente visita."
+        </p>
+      </section>
+
+      <section class="cta">
+        <h2>¿Listo para transformar tu marca?</h2>
+        <p>Contáctanos y hagamos que tu inmobiliaria destaque.</p>
+        <div class="footer-note">
+          © 2026 — Servicios Digitales Inmobiliarios
+        </div>
+      </section>
+    </main>
+
+    <div class="lightbox" id="lightbox">
+      <span class="lightbox-close" id="lightbox-close">×</span>
+      <img id="lightbox-img" src="" alt="" />
+      <video id="lightbox-video" controls playsinline></video>
+      <div class="lightbox-before-after" id="lightbox-before-after">
+        <div
+          class="before-after-compare"
+          id="lightbox-before-after-compare"
+          data-position="50"
+        >
+          <div class="before-after-base">
+            <img id="lightbox-before-img" src="" alt="" />
+          </div>
+          <div class="before-after-overlay">
+            <img id="lightbox-after-img" src="" alt="" />
+          </div>
+          <div class="before-after-divider"></div>
+          <div class="before-after-handle" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <polyline points="10 7 5 12 10 17" />
+              <polyline points="14 7 19 12 14 17" />
+            </svg>
+          </div>
+          <span class="before-after-label before">Before</span>
+          <span class="before-after-label after">After</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const templateCarousels = [
+        {
+          title: "NY Bohemio",
+          images: [
+            { src: "carrousel-images/7.png", alt: "Plantilla NY Bohemio 1" },
+            { src: "carrousel-images/8.png", alt: "Plantilla NY Bohemio 2" },
+          ],
+        },
+        {
+          title: "Miami vibrante",
+          images: [
+            {
+              src: "carrousel-images/1.png",
+              alt: "Plantilla Miami vibrante 1",
+            },
+            {
+              src: "carrousel-images/2.png",
+              alt: "Plantilla Miami vibrante 2",
+            },
+          ],
+        },
+        {
+          title: "ECO Green",
+          images: [
+            { src: "carrousel-images/5.png", alt: "Plantilla ECO Green 1" },
+            { src: "carrousel-images/6.png", alt: "Plantilla ECO Green 2" },
+          ],
+        },
+        {
+          title: "HOME Scape",
+          images: [
+            { src: "carrousel-images/3.png", alt: "Plantilla HOME Scape 1" },
+            { src: "carrousel-images/4.png", alt: "Plantilla HOME Scape 2" },
+          ],
+        },
+        {
+          title: "DREAM Keys",
+          images: [
+            { src: "carrousel-images/15.png", alt: "Plantilla DREAM Keys 1" },
+            { src: "carrousel-images/16.png", alt: "Plantilla DREAM Keys 2" },
+          ],
+        },
+        {
+          title: "HABITAT Grid",
+          images: [
+            { src: "carrousel-images/13.png", alt: "Plantilla HABITAT Grid 1" },
+            { src: "carrousel-images/14.png", alt: "Plantilla HABITAT Grid 2" },
+          ],
+        },
+        {
+          title: "TERRANOVA",
+          images: [
+            { src: "carrousel-images/11.png", alt: "Plantilla TERRANOVA 1" },
+            { src: "carrousel-images/12.png", alt: "Plantilla TERRANOVA 2" },
+          ],
+        },
+        {
+          title: "URBAN Crown",
+          images: [
+            { src: "carrousel-images/9.png", alt: "Plantilla URBAN Crown 1" },
+            { src: "carrousel-images/10.png", alt: "Plantilla URBAN Crown 2" },
+          ],
+        },
+      ];
+
+      const templateList = document.getElementById("template-list");
+      const beforeAfterPairs = Array.from({ length: 10 }, (_, index) => ({
+        before: `before/${index + 1}.png`,
+        after: `after/${index + 1}.png`,
+        altBefore: `Antes ${index + 1}`,
+        altAfter: `Después ${index + 1}`,
+      }));
+      const videoSources = [
+        { src: "video1.mp4", alt: "Video inmobiliario 1" },
+        { src: "video2.mp4", alt: "Video inmobiliario 2" },
+        { src: "video3.mp4", alt: "Video inmobiliario 3" },
+        { src: "video4.mp4", alt: "Video inmobiliario 4" },
+      ];
+
+      function renderTemplateCarousels() {
+        templateList.innerHTML = templateCarousels
+          .map(
+            (carousel, index) => `
+        <article class="template-item">
+          <h3>${carousel.title}</h3>
+          <div class="template-frame">
+            <div class="template-carousel" data-carousel-index="${index}">
+              <button class="template-nav prev" type="button" aria-label="Imagen anterior">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <div class="template-track">
+                ${carousel.images
+                  .map(
+                    (image) => `
+                  <div class="template-slide">
+                    <img src="${image.src}" alt="${image.alt}" />
+                  </div>
+                `,
+                  )
+                  .join("")}
+              </div>
+              <button class="template-nav next" type="button" aria-label="Imagen siguiente">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+            <div class="template-dots">
+              ${carousel.images
+                .map(
+                  (_, imageIndex) => `
+                <button class="template-dot ${imageIndex === 0 ? "active" : ""}" type="button" data-dot-index="${imageIndex}" aria-label="Ir a imagen ${imageIndex + 1}"></button>
+              `,
+                )
+                .join("")}
+            </div>
+          </div>
+        </article>
+      `,
+          )
+          .join("");
+
+        const carouselStates = templateCarousels.map(() => 0);
+        const carouselElements =
+          document.querySelectorAll(".template-carousel");
+
+        function updateCarousel(carouselIndex) {
+          const carousel = carouselElements[carouselIndex];
+          const track = carousel.querySelector(".template-track");
+          const dots = carousel.parentElement.querySelectorAll(".template-dot");
+          track.style.transform = `translateX(-${carouselStates[carouselIndex] * 100}%)`;
+          dots.forEach((dot, dotIndex) => {
+            dot.classList.toggle(
+              "active",
+              dotIndex === carouselStates[carouselIndex],
+            );
+          });
+        }
+
+        carouselElements.forEach((carousel, carouselIndex) => {
+          const prevButton = carousel.querySelector(".prev");
+          const nextButton = carousel.querySelector(".next");
+          const dots = carousel.parentElement.querySelectorAll(".template-dot");
+          const imageCount = templateCarousels[carouselIndex].images.length;
+
+          prevButton.addEventListener("click", () => {
+            carouselStates[carouselIndex] =
+              (carouselStates[carouselIndex] - 1 + imageCount) % imageCount;
+            updateCarousel(carouselIndex);
+          });
+
+          nextButton.addEventListener("click", () => {
+            carouselStates[carouselIndex] =
+              (carouselStates[carouselIndex] + 1) % imageCount;
+            updateCarousel(carouselIndex);
+          });
+
+          dots.forEach((dot, dotIndex) => {
+            dot.addEventListener("click", () => {
+              carouselStates[carouselIndex] = dotIndex;
+              updateCarousel(carouselIndex);
+            });
+          });
+        });
+      }
+
+      function setComparePosition(compare, percent) {
+        const clamped = Math.max(0, Math.min(100, percent));
+        compare.dataset.position = clamped;
+        compare.querySelector(".before-after-overlay").style.clipPath =
+          `inset(0 ${100 - clamped}% 0 0)`;
+        compare.querySelector(".before-after-divider").style.left =
+          `${clamped}%`;
+        compare.querySelector(".before-after-handle").style.left =
+          `${clamped}%`;
+      }
+
+      function bindCompareSlider(compare) {
+        let isDragging = false;
+        let startX = 0;
+        let moved = false;
+
+        const updateFromClientX = (clientX) => {
+          const rect = compare.getBoundingClientRect();
+          const percent = ((clientX - rect.left) / rect.width) * 100;
+          setComparePosition(compare, percent);
+        };
+
+        setComparePosition(compare, 50);
+
+        compare.addEventListener("pointerdown", (e) => {
+          isDragging = true;
+          moved = false;
+          startX = e.clientX;
+          compare.dataset.justDragged = "false";
+          compare.setPointerCapture(e.pointerId);
+          updateFromClientX(e.clientX);
+        });
+
+        compare.addEventListener("pointermove", (e) => {
+          if (!isDragging) return;
+          if (Math.abs(e.clientX - startX) > 6) moved = true;
+          updateFromClientX(e.clientX);
+        });
+
+        compare.addEventListener("pointerup", () => {
+          if (moved) {
+            compare.dataset.justDragged = "true";
+            setTimeout(() => {
+              compare.dataset.justDragged = "false";
+            }, 50);
+          }
+          isDragging = false;
+        });
+
+        compare.addEventListener("pointercancel", () => {
+          isDragging = false;
+          compare.dataset.justDragged = "false";
+        });
+      }
+
+      function renderBeforeAfterCarousel() {
+        const track = document.getElementById("before-after-track");
+        const dots = document.getElementById("before-after-dots");
+        const prev = document.getElementById("before-after-prev");
+        const next = document.getElementById("before-after-next");
+        let currentIndex = 0;
+
+        track.innerHTML = beforeAfterPairs
+          .map(
+            (pair, index) => `
+        <div class="before-after-slide" data-before-after-index="${index}">
+          <div class="before-after-compare">
+            <div class="before-after-base">
+              <img src="${pair.before}" alt="${pair.altBefore}" />
+            </div>
+            <div class="before-after-overlay">
+              <img src="${pair.after}" alt="${pair.altAfter}" />
+            </div>
+            <div class="before-after-divider"></div>
+            <div class="before-after-handle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="10 7 5 12 10 17"/><polyline points="14 7 19 12 14 17"/></svg>
+            </div>
+            <span class="before-after-label before">Before</span>
+            <span class="before-after-label after">After</span>
+          </div>
+        </div>
+      `,
+          )
+          .join("");
+
+        dots.innerHTML = beforeAfterPairs
+          .map(
+            (_, index) => `
+        <button class="before-after-dot ${index === 0 ? "active" : ""}" type="button" data-before-after-dot-index="${index}" aria-label="Ir a comparación ${index + 1}"></button>
+      `,
+          )
+          .join("");
+
+        const updateCarousel = () => {
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+          dots.querySelectorAll(".before-after-dot").forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentIndex);
+          });
+        };
+
+        prev.addEventListener("click", () => {
+          currentIndex =
+            (currentIndex - 1 + beforeAfterPairs.length) %
+            beforeAfterPairs.length;
+          updateCarousel();
+        });
+
+        next.addEventListener("click", () => {
+          currentIndex = (currentIndex + 1) % beforeAfterPairs.length;
+          updateCarousel();
+        });
+
+        dots.querySelectorAll(".before-after-dot").forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            currentIndex = index;
+            updateCarousel();
+          });
+        });
+
+        track
+          .querySelectorAll(".before-after-compare")
+          .forEach(bindCompareSlider);
+      }
+
+      function renderVideoCarousel() {
+        const videoTrack = document.getElementById("video-track");
+        const videoDots = document.getElementById("video-dots");
+        const videoPrev = document.getElementById("video-prev");
+        const videoNext = document.getElementById("video-next");
+        let currentVideoIndex = 0;
+        let videoTouchStartX = 0;
+        let videoTouchEndX = 0;
+
+        videoTrack.innerHTML = videoSources
+          .map(
+            (video, index) => `
+        <div class="video-slide" data-video-index="${index}">
+          <video preload="metadata" playsinline muted>
+            <source src="${video.src}" type="video/mp4" />
+          </video>
+        </div>
+      `,
+          )
+          .join("");
+
+        videoDots.innerHTML = videoSources
+          .map(
+            (_, index) => `
+        <button class="video-dot ${index === 0 ? "active" : ""}" type="button" data-video-dot-index="${index}" aria-label="Ir al video ${index + 1}"></button>
+      `,
+          )
+          .join("");
+
+        const updateVideoCarousel = () => {
+          videoTrack.style.transform = `translateX(-${currentVideoIndex * 100}%)`;
+          videoDots.querySelectorAll(".video-dot").forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentVideoIndex);
+          });
+        };
+
+        videoPrev.addEventListener("click", () => {
+          currentVideoIndex =
+            (currentVideoIndex - 1 + videoSources.length) % videoSources.length;
+          updateVideoCarousel();
+        });
+
+        videoNext.addEventListener("click", () => {
+          currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+          updateVideoCarousel();
+        });
+
+        videoDots.querySelectorAll(".video-dot").forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            currentVideoIndex = index;
+            updateVideoCarousel();
+          });
+        });
+
+        const videoCarousel = document.getElementById("video-carousel");
+        videoCarousel.addEventListener(
+          "touchstart",
+          (e) => {
+            videoTouchStartX = e.changedTouches[0].clientX;
+          },
+          { passive: true },
+        );
+
+        videoCarousel.addEventListener(
+          "touchend",
+          (e) => {
+            videoTouchEndX = e.changedTouches[0].clientX;
+            const deltaX = videoTouchEndX - videoTouchStartX;
+            if (Math.abs(deltaX) < 40) return;
+            if (deltaX > 0) {
+              currentVideoIndex =
+                (currentVideoIndex - 1 + videoSources.length) %
+                videoSources.length;
+            } else {
+              currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+            }
+            updateVideoCarousel();
+          },
+          { passive: true },
+        );
+      }
+
+      renderTemplateCarousels();
+      renderBeforeAfterCarousel();
+      renderVideoCarousel();
+
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxVideo = document.getElementById("lightbox-video");
+      const lightboxClose = document.getElementById("lightbox-close");
+      const lightboxBeforeAfter = document.getElementById(
+        "lightbox-before-after",
+      );
+      const lightboxBeforeAfterCompare = document.getElementById(
+        "lightbox-before-after-compare",
+      );
+      const lightboxBeforeImg = document.getElementById("lightbox-before-img");
+      const lightboxAfterImg = document.getElementById("lightbox-after-img");
+
+      let activeCarouselIndex = 0;
+      let activeImageIndex = 0;
+      let activeMediaType = "image";
+      let activeBeforeAfterIndex = 0;
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      function hideAllLightboxMedia() {
+        lightboxImg.style.display = "none";
+        lightboxVideo.style.display = "none";
+        lightboxBeforeAfter.classList.remove("active");
+      }
+
+      function updateLightboxImage() {
+        const activeImage =
+          templateCarousels[activeCarouselIndex].images[activeImageIndex];
+        hideAllLightboxMedia();
+        lightboxImg.src = activeImage.src;
+        lightboxImg.alt = activeImage.alt;
+        lightboxImg.style.display = "block";
+        lightboxVideo.pause();
+        lightboxVideo.removeAttribute("src");
+        lightboxVideo.load();
+      }
+
+      function updateLightboxVideo() {
+        const activeVideo = videoSources[activeImageIndex];
+        hideAllLightboxMedia();
+        lightboxVideo.src = activeVideo.src;
+        lightboxVideo.style.display = "block";
+        lightboxVideo.load();
+        lightboxVideo.play().catch(() => {});
+      }
+
+      function updateLightboxBeforeAfter() {
+        const pair = beforeAfterPairs[activeBeforeAfterIndex];
+        hideAllLightboxMedia();
+        lightboxBeforeImg.src = pair.before;
+        lightboxBeforeImg.alt = pair.altBefore;
+        lightboxAfterImg.src = pair.after;
+        lightboxAfterImg.alt = pair.altAfter;
+        lightboxBeforeAfter.classList.add("active");
+
+        requestAnimationFrame(() => {
+          setComparePosition(lightboxBeforeAfterCompare, 50);
+        });
+        lightboxVideo.pause();
+        lightboxVideo.removeAttribute("src");
+        lightboxVideo.load();
+      }
+
+      function openLightbox(carouselIndex, imageIndex, mediaType = "image") {
+        activeCarouselIndex = carouselIndex;
+        activeImageIndex = imageIndex;
+        activeMediaType = mediaType;
+
+        if (activeMediaType === "video") {
+          updateLightboxVideo();
+        } else if (activeMediaType === "beforeAfter") {
+          activeBeforeAfterIndex = imageIndex;
+          updateLightboxBeforeAfter();
+        } else {
+          updateLightboxImage();
+        }
+
+        lightbox.classList.add("active");
+      }
+
+      function showPrevLightboxImage() {
+        if (activeMediaType === "video") {
+          activeImageIndex =
+            (activeImageIndex - 1 + videoSources.length) % videoSources.length;
+          updateLightboxVideo();
+          return;
+        }
+        if (activeMediaType === "beforeAfter") {
+          activeBeforeAfterIndex =
+            (activeBeforeAfterIndex - 1 + beforeAfterPairs.length) %
+            beforeAfterPairs.length;
+          updateLightboxBeforeAfter();
+          return;
+        }
+        const images = templateCarousels[activeCarouselIndex].images;
+        activeImageIndex =
+          (activeImageIndex - 1 + images.length) % images.length;
+        updateLightboxImage();
+      }
+
+      function showNextLightboxImage() {
+        if (activeMediaType === "video") {
+          activeImageIndex = (activeImageIndex + 1) % videoSources.length;
+          updateLightboxVideo();
+          return;
+        }
+        if (activeMediaType === "beforeAfter") {
+          activeBeforeAfterIndex =
+            (activeBeforeAfterIndex + 1) % beforeAfterPairs.length;
+          updateLightboxBeforeAfter();
+          return;
+        }
+        const images = templateCarousels[activeCarouselIndex].images;
+        activeImageIndex = (activeImageIndex + 1) % images.length;
+        updateLightboxImage();
+      }
+
+      document.addEventListener("click", (e) => {
+        const clickedImage = e.target.closest(".template-slide img");
+        if (clickedImage) {
+          const carousel = clickedImage.closest(".template-carousel");
+          const carouselIndex = Number(carousel.dataset.carouselIndex);
+          const slides = Array.from(
+            carousel.querySelectorAll(".template-slide img"),
+          );
+          const imageIndex = slides.indexOf(clickedImage);
+          openLightbox(carouselIndex, imageIndex, "image");
+          return;
+        }
+
+        const clickedVideo = e.target.closest(".video-slide video");
+        if (clickedVideo) {
+          const slides = Array.from(
+            document.querySelectorAll(".video-slide video"),
+          );
+          const videoIndex = slides.indexOf(clickedVideo);
+          openLightbox(0, videoIndex, "video");
+          return;
+        }
+
+        const clickedBeforeAfter = e.target.closest(".before-after-compare");
+        if (
+          clickedBeforeAfter &&
+          !clickedBeforeAfter.closest("#lightbox-before-after")
+        ) {
+          if (clickedBeforeAfter.dataset.justDragged === "true") return;
+          const slide = clickedBeforeAfter.closest(".before-after-slide");
+          const beforeAfterIndex = Number(slide.dataset.beforeAfterIndex);
+          openLightbox(0, beforeAfterIndex, "beforeAfter");
+        }
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove("active");
+        lightboxVideo.pause();
+        lightboxVideo.removeAttribute("src");
+        lightboxVideo.load();
+        lightboxBeforeAfter.classList.remove("active");
+      }
+
+      lightboxClose.addEventListener("click", closeLightbox);
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("active")) return;
+        if (e.key === "ArrowLeft") showPrevLightboxImage();
+        if (e.key === "ArrowRight") showNextLightboxImage();
+        if (e.key === "Escape") closeLightbox();
+      });
+
+      lightbox.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.changedTouches[0].clientX;
+        },
+        { passive: true },
+      );
+
+      lightbox.addEventListener(
+        "touchend",
+        (e) => {
+          if (activeMediaType !== "image" && activeMediaType !== "video")
+            return;
+          touchEndX = e.changedTouches[0].clientX;
+          const deltaX = touchEndX - touchStartX;
+          if (Math.abs(deltaX) < 40) return;
+          if (deltaX > 0) {
+            showPrevLightboxImage();
+          } else {
+            showNextLightboxImage();
+          }
+        },
+        { passive: true },
+      );
+
+      bindCompareSlider(lightboxBeforeAfterCompare);
+    </script>
+  </body>
+</html>
